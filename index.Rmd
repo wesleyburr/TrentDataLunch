@@ -28,4 +28,4 @@ theme_set(theme_gray(base_size = 24))
 
 ## November 5, 2018
 
-<a href="./RMarkdown-Reproducible/datalunch01.html">HTML Slides</a> (<a href="./RMarkdown-Reproducible/datalunch01.pdf">PDF</a>)
+<a href="./November5_Reproducible/datalunch01.html">HTML Slides</a> (<a href="./November5_Reproducible/datalunch01.pdf">PDF</a>)
