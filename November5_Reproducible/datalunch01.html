@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reproducible Research and R Markdown</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Dr. Wesley S. Burr" />
+    <meta name="date" content="2018-11-05" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+    <link rel="stylesheet" href="example.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible Research and R Markdown
+### Dr. Wesley S. Burr
+### 2018-11-05
+
+---
+
+
+class: inverse
+
+
+
+## Steps Toward Reproducible Research
+
+Making your research reproducible is the goal. It's not trivial!
+
+---
+
+class: inverse
+
+## This is not original ...
+
+Full acknowledgement: I ripped off most of these slides from a statistician named Karl Broman at UW-Madison. He's the person who introduced me to the core concepts.
+
+---
+
+class: inverse
+
+## This has happened to me ...
+
+
+```r
+Wesley, received the report, looks interesting. However, I see that 
+you only have results up to 2013 - why have you not used the latest 
+data up to 2016? Can you re-do the analysis?
+  - (a colleague of mine at Health Canada)
+```
+
+---
+
+class: inverse
+
+## And so has this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+The results in Table 1 don’t seem to correspond to those in Figure 2.
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## And this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+How did I get those results again? What order did I run all this code in ... ?
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## And this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+Where did this data come from?
+&lt;/div&gt;
+
+---
+class: inverse
+
+## And this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+How did this processed data set get made? Where did those weird data records go?
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## And this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+This code that used to work is now erroring ...
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## And this ...
+
+&lt;div style="font-size: 30px; font-style: bold;"&gt;
+"The attached is similar to the code we used." 
+(actual quote from another researcher)
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## `\(\;\)`
+
+&lt;br/&gt;
+
+&lt;div style="font-size: 60px; font-style: bold;"&gt;
+&lt;center&gt;
+Reproducible &lt;br&gt;
+&lt;span style="color: #0000FF;"&gt;versus&lt;/span&gt; &lt;br&gt;
+Replicable
+&lt;/center&gt;
+&lt;/div&gt;
+
+---
+
+class: inverse
+
+## Levels of Research (Code) Quality
+
+▶ Are the tables and figures reproducible from the code
+and data?&lt;br&gt;
+▶ Does the code actually do what you think it does?&lt;br&gt;
+▶ In addition to **what** was done, is it clear **why** it was
+done? &lt;br&gt;
+(e.g., why did you omit those six subjects?)&lt;br&gt;
+▶ Can the code be used for other data?&lt;br&gt;
+▶ Can you extend the code to do other things?&lt;br&gt;
+
+---
+
+class: inverse
+
+## 1. Everything should be scripted
+
+If you'll do something (with data or code) once, you'll do it 1000 times.
+
+---
+
+class: inverse
+
+## 2. Organize your data and code
+
+
+```r
+File organization and naming are powerful weapons against chaos.
+- Dr. Jenny Bryan (UBC and RStudio)
+```
+
+---
+
+class: inverse
+
+## 2. Organize your data and code
+
+
+```r
+Your closest collaborator is you six months ago, but you don’t 
+reply to emails.
+- Dr. Mark Holder (UBC-Okanagan)
+```
+
+
+```r
+... looking at code from six months ago which appears to have 
+been written  by a stranger, possibly an insane stranger ...
+- Dr. Hadley Wickham, Chief Scientist, RStudio (2016)
+```
+
+---
+
+class: inverse
+
+## 2. Organize your data and code
+
+Directory structure! Coherent and straightforward process within scripts.
+
+&lt;br/&gt;
+
+&lt;img src="code.png"&gt;
+
+&lt;br /&gt;
+
+(and this is a not particularly good example - I've learned a lot since 2013)
+
+---
+
+class: inverse
+
+## 3. Automate the process (GNU Make)
+
+Not strictly necessary for science, but invaluable for **reproduciblity**. We can talk more about this in the future ...
+
+---
+
+class: inverse
+
+## 4. Turn scripts into reproducible reports
+
+This is what we're going to show you today!
+    </textarea>
+<script src="remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-bright",
+"highlightLines": true,
+"highlightLanguage": "r"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
