@@ -1,0 +1,31 @@
+---
+title: "Data Lunch - Talk Links"
+author: 'Dr. Wesley S. Burr'
+date: 2018-11-05
+output:
+  xaringan::moon_reader:
+    chakra: remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: tomorrow-night-bright
+      highlightLines: true
+      highlightLanguage: r
+    includes:
+      in_header: header.html
+    countIncrementalSlides: false
+    css: example.css
+---
+
+class: inverse
+
+```{r include=FALSE}
+library(ggplot2)
+filter <- dplyr::filter
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.width=10.5, fig.height=4, 
+  comment=NA, rows.print=16)
+theme_set(theme_gray(base_size = 24))
+```
+
+## November 5, 2018
+
+<a href="./RMarkdown-Reproducible/datalunch01.html">HTML Slides</a> (<a href="./RMarkdown-Reproducible/datalunch01.pdf">PDF</a>)
